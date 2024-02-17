@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ano Copa</title>
+    <style>
+        body {
+            background-image: url(Img/taca.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: rgb(200, 223, 73);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slideshow-container {
+            max-width: 10000px;
+            align-items: center;
+           
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .slide-content {
+           align-items: center;
+            bottom: 20px;
+            left: 20px;
+            font-size: 36px;
+        }     
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="Img/uruguai.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/italia.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/italia.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/uruguai.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/alemanha.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/brasil.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/brasil.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/inglaterra.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/brasil.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/alemanha.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/argentina.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/italia.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+        <div class="slide fade">
+            <img src="Img/argentina.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+        <div class="slide fade">
+            <img src="Img/alemanha.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+        <div class="slide fade">
+            <img src="Img/brasil.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+        <div class="slide fade">
+            <img src="Img/frança.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+        <div class="slide fade">
+            <img src="Img/brasil.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+        <div class="slide fade">
+            <img src="Img/italia.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+        <div class="slide fade">
+            <img src="Img/espanha.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+        <div class="slide fade">
+            <img src="Img/alemanha.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+        <div class="slide fade">
+            <img src="Imagem/frança.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+        <div class="slide fade">
+            <img src="Img/argentinaa.png" style="width:100%">
+            <div class="slide-content" id="slideAno"></div>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let anoCopa = 1930;
+
+        function updateSlide() {
+            const slideContents = document.querySelectorAll(".slide-content");
+            slideContents.forEach(content => {
+                content.textContent = "Teve copa em " + anoCopa;
+            });
+        }
+
+        function nextSlide() {
+            // Pular do ano 1938 para 1950
+            if (anoCopa === 1938) {
+                anoCopa = 1950;
+            } else {
+                anoCopa += 4;
+            }
+
+            updateSlide();
+
+            // Verificar se o ano ultrapassou 2022, e se sim, parar o intervalo
+            if (anoCopa >= 2022) {
+                clearInterval(intervalId);
+            }
+        }
+
+        // Atualizar o slide inicial
+        updateSlide();
+
+        // Atualizar o slide automaticamente a cada 2 segundos (2000 milissegundos)
+        const intervalId = setInterval(nextSlide, 2000);
+    });
+
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+    
+        slides[slideIndex - 1].style.display = "block";
+        
+        // Verificar se o próximo slide contém a imagem "argentinaa.png" e, se sim, não continuar chamando showSlides()
+        if (slides[slideIndex - 1].querySelector('img').getAttribute('src') === 'Img/argentinaa.png') {
+            return; // Isso interrompe a recursão e impede que a função showSlides() seja chamada novamente
+        }
+    
+        setTimeout(showSlides, 2000); // Muda a imagem a cada 2 segundos
+    }
+    
+</script>
+
+</body>
+</html>
